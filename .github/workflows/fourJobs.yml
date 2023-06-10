@@ -1,0 +1,29 @@
+name: Empty Jobs Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  a:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job A
+        run: echo "Job A"
+
+  b:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job B
+        run: echo "Job B"
+
+  c:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job C
+        run: echo "Job C"
+
+  d:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job D
+        run: echo "Job D"
