@@ -1,4 +1,4 @@
-name: Empty Jobs Workflow
+name: Dependent Jobs Workflow
 
 on:
   workflow_dispatch:
@@ -12,18 +12,21 @@ jobs:
 
   b:
     runs-on: ubuntu-latest
+    needs: a
     steps:
       - name: Job B
         run: echo "Job B"
 
   c:
     runs-on: ubuntu-latest
+    needs: b
     steps:
       - name: Job C
         run: echo "Job C"
 
   d:
     runs-on: ubuntu-latest
+    needs: c
     steps:
       - name: Job D
         run: echo "Job D"
