@@ -4,29 +4,30 @@ on:
   workflow_dispatch:
 
 jobs:
-  a:
+  Fetch-and-Store-Data-Spinnaker-API:
     runs-on: ubuntu-latest
+    description: This is Job A
     steps:
       - name: Job A
         run: echo "Job A"
 
-  b:
+  Run-Script-on-Data:
     runs-on: ubuntu-latest
-    needs: a
+    needs: Fetch-and-Store-Data-Spinnaker-API
     steps:
       - name: Job B
         run: echo "Job B"
 
-  c:
+  Get-User-Email-Github-API:
     runs-on: ubuntu-latest
-    needs: b
+    needs: Fetch-and-Store-Data-Spinnaker-API
     steps:
       - name: Job C
         run: echo "Job C"
 
-  d:
+  SNS-Notification:
     runs-on: ubuntu-latest
-    needs: c
+    needs: Get-User-Email-Github-API
     steps:
       - name: Job D
         run: echo "Job D"
