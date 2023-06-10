@@ -1,0 +1,28 @@
+name: Fetch Cat Fact
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch-fact:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Replace with your desired Python version
+
+      - name: Install requests library
+        run: pip install requests
+
+      - name: Fetch Cat Fact
+        run: |
+          curl -s https://catfact.ninja/fact > cat_fact.json
+
+      - name: Print Cat Fact
+        run: |
+          python print_cat_fact.py
