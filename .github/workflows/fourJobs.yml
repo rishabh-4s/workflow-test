@@ -6,7 +6,7 @@ on:
 jobs:
   Fetch-and-Store-Data-Spinnaker-API:
     runs-on: ubuntu-latest
-    description: This is Job A
+#     description: This is Job A
     steps:
       - name: Job A
         run: echo "Job A"
