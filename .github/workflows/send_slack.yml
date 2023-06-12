@@ -1,0 +1,15 @@
+name: Slack Notification
+
+on:
+  workflow_dispatch:
+
+jobs:
+  send-notification:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Slack Message
+        env:
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello from GitHub Actions!"}' $SLACK_WEBHOOK_URL
