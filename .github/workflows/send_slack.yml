@@ -1,15 +1,19 @@
-name: Slack Notification
-
+name: Slack Notification Demo
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  send-notification:
+  slackNotification:
+    name: Slack Notification Demo
     runs-on: ubuntu-latest
-
     steps:
-      - name: Send Slack Message
-        env:
-          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
-        run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
+    - uses: actions/checkout@v2
+    - name: Slack Notification Demo
+      uses: bryannice/gitactions-slack-notification@2.0.0
+      env:
+        SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_INCOMING_WEBHOOK }}
+        SLACK_MESSAGE: 'Demoing the Slack Notification'
+        SLACK_TITLE: 'Slack Notification Demo'
