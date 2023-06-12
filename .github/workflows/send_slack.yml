@@ -12,4 +12,4 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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 
